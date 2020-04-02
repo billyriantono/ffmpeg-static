@@ -213,8 +213,8 @@ download \
 
 download \
   "n4.2.2.tar.gz" \
-  "ffmpeg4.0.tar.gz" \
-  "4749a5e56f31e7ccebd3f9924972220f" \
+  "ffmpeg4.2.2.tar.gz" \
+  "85c99f782dd3244a8e02ea85d29ecee2" \
   "https://github.com/FFmpeg/FFmpeg/archive"
   
   download \
@@ -267,16 +267,16 @@ fi
 PATH="$BIN_DIR:$PATH" make -j $jval
 make install
 
-echo "*** Building fontconfig ***"
-cd $BUILD_DIR/fontconfig*
-[ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-if [ "$platform" = "linux" ]; then
-  [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" ./configure --prefix=$TARGET_DIR
-elif [ "$platform" = "darwin" ]; then
-  [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" ./configure --prefix=$TARGET_DIR
-fi
-PATH="$BIN_DIR:$PATH" make -j $jval
-make install
+#echo "*** Building fontconfig ***"
+#cd $BUILD_DIR/fontconfig*
+#[ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
+#if [ "$platform" = "linux" ]; then
+#  [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" ./configure --prefix=$TARGET_DIR
+#elif [ "$platform" = "darwin" ]; then
+#  [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" ./configure --prefix=$TARGET_DIR
+#fi
+#PATH="$BIN_DIR:$PATH" make -j $jval
+#make install
 
 echo "*** Building x264 ***"
 cd $BUILD_DIR/x264*
