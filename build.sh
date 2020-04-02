@@ -221,7 +221,7 @@ download \
   "fontconfig-2.13.92.tar.gz" \
   "fontconfig-2.13.92.tar.gz" \
   "4749a5e56f31e7ccebd3f99249722201" \
-  "https://www.freedesktop.org/software/fontconfig/release/
+  "https://www.freedesktop.org/software/fontconfig/release/"
 
 [ $download_only -eq 1 ] && exit 0
 
