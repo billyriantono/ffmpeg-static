@@ -426,36 +426,36 @@ if [ "$platform" = "linux" ]; then
     --extra-libs="-lpthread -lm -lz" \
     --extra-ldexeflags="-static" \
     --bindir="$BIN_DIR" \
-    --enable-pic \
-    --enable-ffplay \
-    --enable-fontconfig \
-    --enable-frei0r \
-    --enable-gpl \
-    --enable-version3 \
-    --enable-libass \
-    --enable-libfribidi \
-    --enable-libfdk-aac \
-    --enable-libfreetype \
-    --enable-libmp3lame \
-    --enable-libopencore-amrnb \
-    --enable-libopencore-amrwb \
-    --enable-libopenjpeg \
-    --enable-libopus \
-    --enable-librtmp \
-    --enable-libsoxr \
-    --enable-libspeex \
-    --enable-libtheora \
-    --enable-libvidstab \
-    --enable-libvo-amrwbenc \
-    --enable-libvorbis \
-    --enable-libvpx \
-    --enable-libwebp \
-    --enable-libx264 \
-    --enable-libx265 \
-    --enable-libxvid \
-    --enable-libzimg \
-    --enable-nonfree \
-    --enable-openssl
+    --extra-cflags="--static" \
+  --disable-debug \
+  --disable-shared \
+  --enable-libx265 \
+  --enable-static \
+  --disable-ffplay \
+  --disable-doc \
+  --enable-librtmp \
+  --enable-gpl \
+  --enable-pthreads \
+  --enable-postproc \
+  --enable-libass \
+  --enable-version3 \
+  --enable-gray \
+  --enable-runtime-cpudetect \
+  --enable-libfreetype \
+  --enable-fontconfig \
+  --enable-openssl \
+  --enable-libmp3lame \
+  --enable-libopus \
+  --enable-libtheora \
+  --enable-libvorbis \
+  --enable-libx264 \
+  --enable-libxvid \
+  --enable-bzlib \
+  --enable-zlib \
+  --enable-libvpx \
+  --enable-libxavs \
+  --enable-nonfree \
+  --extra-libs="-lsupc++ -lstdc++ -lrtmp -lnettle -lhogweed -lgmp -lssl -lcrypto -lz -lc -ldl"
 elif [ "$platform" = "darwin" ]; then
   [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" \
   PKG_CONFIG_PATH="${TARGET_DIR}/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/share/pkgconfig:/usr/local/Cellar/openssl/1.0.2o_1/lib/pkgconfig" ./configure \
