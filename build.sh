@@ -216,6 +216,12 @@ download \
   "ffmpeg4.0.tar.gz" \
   "4749a5e56f31e7ccebd3f9924972220f" \
   "https://github.com/FFmpeg/FFmpeg/archive"
+  
+  download \
+  "fontconfig-2.13.92.tar.gz" \
+  "fontconfig-2.13.92.tar.gz" \
+  "4749a5e56f31e7ccebd3f99249722201" \
+  "https://www.freedesktop.org/software/fontconfig/release/
 
 [ $download_only -eq 1 ] && exit 0
 
@@ -252,6 +258,17 @@ make install
 
 echo "*** Building zlib ***"
 cd $BUILD_DIR/zlib*
+[ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
+if [ "$platform" = "linux" ]; then
+  [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" ./configure --prefix=$TARGET_DIR
+elif [ "$platform" = "darwin" ]; then
+  [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" ./configure --prefix=$TARGET_DIR
+fi
+PATH="$BIN_DIR:$PATH" make -j $jval
+make install
+
+echo "*** Building fontconfig ***"
+cd $BUILD_DIR/fontconfig*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
 if [ "$platform" = "linux" ]; then
   [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" ./configure --prefix=$TARGET_DIR
