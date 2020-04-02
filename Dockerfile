@@ -43,6 +43,7 @@ RUN apt-get update && apt-get install -y \
   texi2html \
   yasm \
   libnuma-dev numactl \
+  nettle-dev \
   && rm -rf /var/lib/apt/lists/*
 
 # Copy the build scripts.
