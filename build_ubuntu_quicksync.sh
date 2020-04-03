@@ -1,5 +1,5 @@
 #!/bin/bash
-
+. env.source
 sudo apt-get install build-essential curl tar pkg-config
 mkdir -p $BUILD_DIR/vaapi
 
