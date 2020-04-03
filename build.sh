@@ -217,11 +217,11 @@ download \
   "85c99f782dd3244a8e02ea85d29ecee2" \
   "https://github.com/FFmpeg/FFmpeg/archive"
   
-  download \
-  "fontconfig-2.13.92.tar.gz" \
-  "fontconfig-2.13.92.tar.gz" \
-  "eda1551685c25c4588da39222142f063" \
-  "https://www.freedesktop.org/software/fontconfig/release/"
+#   download \
+#   "fontconfig-2.13.92.tar.gz" \
+#   "fontconfig-2.13.92.tar.gz" \
+#   "eda1551685c25c4588da39222142f063" \
+#   "https://www.freedesktop.org/software/fontconfig/release/"
 
 [ $download_only -eq 1 ] && exit 0
 
@@ -293,6 +293,7 @@ PATH="$BIN_DIR:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$TARGET_
 sed -i 's/-lgcc_s/-lgcc_eh/g' x265.pc
 make -j $jval
 make install
+sed -i 's/-lgcc_s/-lgcc_eh/g' $TARGET_DIR/lib/pkconfig/x265.pc
 
 echo "*** Building fdk-aac ***"
 cd $BUILD_DIR/fdk-aac*
@@ -434,8 +435,8 @@ cd $BUILD_DIR/FFmpeg*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
 
 if [ "$platform" = "linux" ]; then
-  [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" \
-  PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig" ./configure \
+  [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" CFLAGS="-I$TARGET_DIR/include" LDFLAGS="-L$TARGET_DIR/lib" \
+  PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig/fontconfig.pc" ./configure \
     --prefix="$TARGET_DIR" \
     --pkg-config-flags="--static" \
     --extra-cflags="-I$TARGET_DIR/include" \
