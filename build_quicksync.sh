@@ -212,10 +212,10 @@ download \
   "https://github.com/xiph/speex/archive/"
 
 download \
-  "n4.2.2.tar.gz" \
-  "ffmpeg4.2.2.tar.gz" \
+  "n4.2.3.tar.gz" \
+  "ffmpeg4.2.3.tar.gz" \
   "85c99f782dd3244a8e02ea85d29ecee2" \
-  "https://github.com/FFmpeg/FFmpeg/archive"
+  "https://github.com/billyriantono/FFmpeg/archive"
   
 #   download \
 #   "fontconfig-2.13.92.tar.gz" \
