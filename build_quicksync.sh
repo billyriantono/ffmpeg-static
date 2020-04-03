@@ -460,6 +460,7 @@ if [ "$platform" = "linux" ]; then
     --enable-static \
     --disable-ffplay \
     --disable-doc \
+    --enable-libdrm \
     --enable-librtmp \
     --enable-gpl \
     --enable-pthreads \
