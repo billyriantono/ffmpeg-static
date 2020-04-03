@@ -131,4 +131,4 @@ if [ $need_ppa -eq 1 ]; then
     sudo apt-get install cmake
 fi
 
-./build_quicksync.sh "$@"
+$ENV_ROOT/build_quicksync.sh "$@"
