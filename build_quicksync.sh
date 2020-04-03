@@ -295,7 +295,7 @@ PATH="$BIN_DIR:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$TARGET_
 sed -i 's/-lgcc_s/-lgcc_eh/g' x265.pc
 make -j $jval
 make install
-sed -i 's/-lgcc_s/-lgcc_eh/g' $TARGET_DIR/lib/pkconfig/x265.pc
+# sed -i 's/-lgcc_s/-lgcc_eh/g' $TARGET_DIR/lib/pkconfig/x265.pc
 
 echo "*** Building fdk-aac ***"
 cd $BUILD_DIR/fdk-aac*
