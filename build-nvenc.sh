@@ -429,6 +429,14 @@ cd $BUILD_DIR/speex*
 make -j $jval
 make install
 
+echo "*** Building Header SDK ***"
+rm -rf $BUILD_DIR/nv-codec-headers
+cd $BUILD_DIR
+git clone https://git.videolan.org/git/ffmpeg/nv-codec-headers.git
+cd nv-codec-headers
+make
+make install
+
 echo "*** Building Nvidia SDK ***"
 cd $BUILD_DIR
 wget -c https://s3-us-west-1.amazonaws.com/backups.reticulum-dev-7f8d39c45878ee2e/streaming-deps/Video_Codec_SDK_8.2.16.zip
