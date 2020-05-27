@@ -212,9 +212,9 @@ download \
   "https://github.com/xiph/speex/archive/"
 
 download \
-  "n4.2.3.tar.gz" \
-  "ffmpeg4.2.3.tar.gz" \
-  "c523b5a4b35078bd7d4fe2ed665d0aa7" \
+  "n4.2.4.tar.gz" \
+  "ffmpeg4.2.4.tar.gz" \
+  "bfb911aaea21bcd61cd0deeaeab65764" \
   "https://github.com/billyriantono/FFmpeg/archive"
   
 #   download \
