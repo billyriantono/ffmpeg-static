@@ -455,14 +455,13 @@ if [ "$platform" = "linux" ]; then
     --prefix="$TARGET_DIR" \
     --pkg-config-flags="--static" \
     --extra-cflags="-I$TARGET_DIR/include" \
-    --extra-ldflags="-L$TARGET_DIR/lib -Wl,-Bstatic -lcrypto -lssl -Wl,-Bdynamic" \
-    --extra-libs="-lpthread -lm -lz" \
+    --extra-ldflags="-L$TARGET_DIR/lib" \
     --extra-ldexeflags="-static" \
     --bindir="$BIN_DIR" \
     --extra-cflags="--static" \
     --extra-version="Xtream-UI" \
-    --extra-cflags=-I../nv_sdk \
-    --extra-ldflags=-L../nv_sdk \
+    --extra-cflags=-"I$BUILD_DIR/nv_sdk" \
+    --extra-ldflags="-L$BUILD_DIR/nv_sdk" \
     --disable-debug \
     --disable-shared \
     --enable-libx265 \
@@ -479,6 +478,8 @@ if [ "$platform" = "linux" ]; then
     --enable-runtime-cpudetect \
     --enable-libfreetype \
     --enable-fontconfig \
+    --enable-libfreetype \
+    --enable-fontconfig \
     --enable-openssl \
     --enable-libmp3lame \
     --enable-libfdk-aac \
@@ -492,8 +493,12 @@ if [ "$platform" = "linux" ]; then
     --enable-libvpx \
     --enable-libxavs \
     --enable-nonfree \
+    --disable-outdev=alsa \
+    --disable-autodetect \
+    --disable-alsa \
+    --disable-indev=alsa \
     --enable-nvenc --enable-ffnvcodec --enable-cuvid \
-    --extra-libs="-lsupc++ -lstdc++ -lrtmp -lnettle -lhogweed -lgmp -lssl -lcrypto -lz -lc -ldl"
+    --extra-libs="-lsupc++ -lstdc++ -lrtmp -lnettle -lhogweed -lunistring -lpthread -lgmp -lssl -lcrypto -lm -lz -lc -ldl"
 elif [ "$platform" = "darwin" ]; then
   [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" \
   PKG_CONFIG_PATH="${TARGET_DIR}/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/share/pkgconfig:/usr/local/Cellar/openssl/1.0.2o_1/lib/pkgconfig" ./configure \
