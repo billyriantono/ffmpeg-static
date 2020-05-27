@@ -464,6 +464,7 @@ if [ "$platform" = "linux" ]; then
     --enable-fontconfig \
     --enable-openssl \
     --enable-libmp3lame \
+    --enable-libfdk-aac \
     --enable-libopus \
     --enable-libtheora \
     --enable-libvorbis \
